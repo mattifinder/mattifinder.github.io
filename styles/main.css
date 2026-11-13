@@ -1,73 +1,292 @@
+/* ===== the page ===== */
+
 body {
-    max-width: 1000px;
-    margin: auto;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background-color: black;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: .5rem;
     color: aquamarine;
     font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif;
+    /* a hand-rolled tiled starfield, because every good homepage is in space */
+    background-color: black;
+    background-image:
+        radial-gradient(circle at 15px 25px, white 1px, transparent 1.5px),
+        radial-gradient(circle at 110px 70px, white 1px, transparent 1.5px),
+        radial-gradient(circle at 60px 140px, yellow 1px, transparent 1.5px),
+        radial-gradient(circle at 170px 165px, cyan 1px, transparent 1.5px),
+        radial-gradient(circle at 145px 15px, magenta 1px, transparent 1.5px),
+        radial-gradient(circle at 35px 95px, white .5px, transparent 1px),
+        radial-gradient(circle at 185px 110px, white .5px, transparent 1px);
+    background-size: 200px 200px;
 }
 
 a {
     color: magenta;
 }
 
-.container {
-    flex: auto;
-    padding: .5rem;
-    border-bottom: .1rem solid aquamarine;
-
+a:visited {
+    color: violet;
 }
 
-.meimage {
-    text-align: center;
-    img {
-        width: 80%;
-        border: .2rem solid magenta;
-        /* keep the border inside the image's width so it doesn't grow the layout */
-        box-sizing: border-box;
-    }
-    @media (min-width: 500px) {
-        float: right;
-        padding-left: 1rem;
-        img {
-            width: 100%;
-        }
-    }
+a:hover {
+    color: yellow;
+    background-color: blue;
 }
 
-footer {
-    display: flex;
-    flex-direction: column;
+/* ===== header bits ===== */
 
-    padding: 1rem .5rem;
-    gap: .6rem;
-
-    @media (min-width: 500px) {
-        flex-direction: row;
-    }
-}
-
-.last-modified {
-    /* in the row layout, push the date to the right edge */
-    @media (min-width: 500px) {
-        margin-left: auto;
-    }
-}
-
-.bold {
+.welcome {
+    display: block;
+    background-color: navy;
+    color: yellow;
     font-weight: bold;
+    border: 3px ridge silver;
+    padding: .2rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/* scrolls right to left like the old <marquee>: the padding starts the text
+   just past the right edge, and -100% moves it until it is gone on the left */
+.welcome span {
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 20s linear infinite;
+}
+
+@keyframes marquee {
+    to { transform: translateX(-100%); }
 }
 
 h1 {
-    border-bottom: .3rem double aquamarine;
-    padding-bottom: .3rem;
+    margin: .8rem 0 .5rem;
+    text-align: center;
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    /* WordArt, more or less */
+    background: linear-gradient(90deg, red, orange, yellow, lime, cyan, blue, magenta);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.construction {
+    text-align: center;
+    padding: .4rem;
+    margin-bottom: .6rem;
+    color: black;
+    font-weight: bold;
+    background: repeating-linear-gradient(-45deg, yellow 0 14px, black 14px 28px);
+    border: 3px outset gold;
+}
+
+.construction > * {
+    display: inline-block;
+    background-color: yellow;
+    padding: .1rem .5rem;
+    margin: .1rem;
+}
+
+.blink {
+    animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+    50% { visibility: hidden; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .blink { animation: none; }
+    .welcome { text-align: center; white-space: normal; }
+    .welcome span { animation: none; padding-left: 0; }
+}
+
+/* ===== table layout, like it's 1998 ===== */
+
+.layout {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 6px;
+    border: 4px outset silver;
+    background-color: #111;
+}
+
+.layout td {
+    vertical-align: top;
+    padding: .5rem;
+    border: 2px inset silver;
+    background-color: black;
+}
+
+.sidebar {
+    width: 190px;
+}
+
+/* on phones, stack the cells and put the content first */
+@media (max-width: 640px) {
+    .layout,
+    .layout tbody,
+    .layout tr {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .layout td {
+        display: block;
+    }
+
+    .sidebar {
+        width: auto;
+        order: 2;
+    }
+}
+
+/* ===== boxes ===== */
+
+.box {
+    border: 3px ridge magenta;
+    margin-bottom: .8rem;
+    background-color: black;
+}
+
+.box-title {
+    background-color: purple;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: .1rem;
+    border-bottom: 2px solid magenta;
+}
+
+.center {
+    text-align: center;
+}
+
+.nav {
+    margin: .4rem 0;
+    padding-left: 1.4rem;
+    list-style-type: '» ';
+}
+
+.nav li {
+    margin: .2rem 0;
+}
+
+.frog {
+    margin-top: .4rem;
+    image-rendering: pixelated;
+}
+
+/* ===== 88x31 buttons ===== */
+
+.badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+}
+
+.badge {
+    box-sizing: border-box;
+    width: 88px;
+    height: 31px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: Verdana, Tahoma, sans-serif;
+    font-size: 8px;
+    line-height: 1.1;
+    text-transform: uppercase;
+    border: 2px outset silver;
+    overflow: hidden;
+}
+
+.badge-html    { background: linear-gradient(white, #ddd); color: #c00; }
+.badge-browser { background: navy; color: white; }
+.badge-cookies { background: #060; color: lime; }
+.badge-comic   { background: linear-gradient(magenta, purple); color: yellow; }
+.badge-claude  { background: linear-gradient(#e8916f, #c15f3c); color: white; gap: 3px; }
+.badge-nojs    { background: black; color: #f7df1e; }
+
+.badge-emoji {
+    font-size: 15px;
+    line-height: 1;
+}
+
+/* ===== content ===== */
+
+.meimage {
+    text-align: center;
+    margin-bottom: .5rem;
+}
+
+.meimage img {
+    width: 80%;
+    height: auto;
+    border: 5px ridge magenta;
+    /* keep the border inside the image's width so it doesn't grow the layout */
+    box-sizing: border-box;
+}
+
+@media (min-width: 500px) {
+    .meimage {
+        float: right;
+        width: 230px;
+        margin-left: 1rem;
+    }
+
+    .meimage img {
+        width: 100%;
+    }
 }
 
 h2 {
-    /* flow-root keeps the line from running underneath the floated photo */
+    /* flow-root keeps the bar from running underneath the floated photo */
     display: flow-root;
-    border-bottom: .1rem solid aquamarine;
-    padding-bottom: .2rem;
+    margin: 1rem 0 .6rem;
+    padding: .2rem .5rem;
+    background-color: navy;
+    color: yellow;
+    border: 3px outset #6060ff;
+}
+
+h3 {
+    color: lime;
+}
+
+.new {
+    font-size: .7em;
+    color: white;
+    background-color: red;
+    padding: 0 .3rem;
+    border: 2px outset red;
+    vertical-align: middle;
+}
+
+hr {
+    border: 0;
+    height: 4px;
+    margin: 1.2rem 0;
+    background: linear-gradient(90deg, red, orange, yellow, lime, cyan, blue, magenta);
+}
+
+/* ===== footer ===== */
+
+footer {
+    margin-top: .8rem;
+}
+
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .4rem 1.2rem;
+    padding: .5rem;
+}
+
+.fineprint {
+    text-align: center;
+    font-size: .8rem;
+    color: silver;
 }

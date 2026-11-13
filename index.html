@@ -9,52 +9,103 @@
         <link rel="stylesheet" href="./styles/main.css">
     </head>
     <body>
-        <div class="container">
-            <h1>Matti Finder</h1>
-            <div class="meimage">
-                <img src="./img/matti.jpg">
-            </div>
-            <div class="content">
-                <p>
-                    Hello and welcome to my personal page!
-                </p>
-                <h2>About Me</h2>
-                <p>
-                    I'm Matti, currently pursuing my M.Sc. in Computer Science at TU Berlin.
-                    My main interests are in cybersecurity (mostly hardware and embedded systems security), microarchitecture design, and low-level programming.
-                    Outside of university, I enjoy weightlifting (not the Olympic kind) as well as some of my other constantly rotating interests (e.g., shaving soaps).
-                </p>
-                <h2>My Life so Far</h2>
-                <p>
-                    I completed my Abitur in 2021, after which I started my Bachelor's degree in Computer Science at TU Berlin.
-                    During my Bachelor's, I spent one year working part-time each as a systems administrator for Cronon GmbH and a software developer for Codewerk GmbH.
-                    Through these jobs, I gained notable insights into how professional software is developed and how large software systems are operated.
-                    I finished my Bachelor's in 2025, writing my thesis on attacking the RPMC security feature of modern SPI flash chips, through voltage-glitching and other hardware attacks.
-                </p>
-                <p>
-					Towards the start of my Master's, I took up a student position at the Security in Telecommunications (SecT) chair at TU Berlin, still focused on firmware and TPM security research.
-					Currently I'm spending an exchange semester at KAIST in Daejeon, South Korea :).
-                </p>
-                <h2>Fun Stuff I Did</h2>
-					<h3>Hello Again</h3>
-					<p>
-					While trying to find real-world targets for the RPMC SPI flash chips I researched during my Bachelor's thesis, we discovered that they were used to protect the fTPM state on multiple modern laptops.
-					A couple of months of hardware research and PoC prototyping later, we demonstrated the existence of multiple hardware vulnerabilities,
-					leading to my first <a href="https://doi.org/10.1145/3830454.3846631">peer-reviewed publication</a>.
-					</p>
-            </div>
+        <div class="welcome">
+            <span>★ ☆ ★ Welcome to Matti Finder's Homepage on the World Wide Web! ★ ☆ ★ Thanks for stopping by! ★ ☆ ★</span>
         </div>
-        <footer>
-            <div class="bold">Contact:</div>
-            <div>
-                Matti Finder
+
+        <h1>~*~ Matti Finder ~*~</h1>
+
+        <div class="construction">
+            <span class="blink">!! UNDER CONSTRUCTION !!</span>
+            <small>pardon the dust, this page is always a work in progress</small>
+        </div>
+
+        <table class="layout" role="presentation">
+            <tr>
+                <td class="sidebar">
+                    <div class="box">
+                        <div class="box-title">Navigation</div>
+                        <ul class="nav">
+                            <li><a href="#about">About Me</a></li>
+                            <li><a href="#life">My Life so Far</a></li>
+                            <li><a href="#fun">Fun Stuff I Did</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="box center">
+                        <div class="box-title">Live Webcam</div>
+                        <img class="frog" src="./img/chatting.gif" width="96" height="96" alt="Animated frog typing furiously on a keyboard">
+                        <div><small>Matti, hard at work</small></div>
+                    </div>
+
+                    <div class="badges">
+                        <span class="badge badge-html"><span>100% <b>HANDWRITTEN</b> CONTENT</span></span>
+                        <span class="badge badge-browser"><span>best viewed with <b>ANY</b> browser</span></span>
+                        <span class="badge badge-cookies"><span><b>NO</b> cookies <b>NO</b> tracking</span></span>
+                        <span class="badge badge-comic"><span><b>COMIC SANS</b> approved</span></span>
+                        <span class="badge badge-claude"><span class="badge-emoji" aria-hidden="true">😎</span><span><b>CLAUDE</b> crafted template</span></span>
+                        <span class="badge badge-nojs"><span><b>NO</b> JavaScript <b>AT ALL</b></span></span>
+                    </div>
+                </td>
+
+                <td class="main">
+                    <div class="meimage">
+                        <img src="./img/matti.jpg" width="250" height="321" alt="Photo of Matti Finder">
+                        <div><small>&lt;-- this is me!</small></div>
+                    </div>
+
+                    <p>
+                        Hello and welcome to my personal page!
+                    </p>
+
+                    <h2 id="about">About Me</h2>
+                    <p>
+                        I'm Matti, currently pursuing my M.Sc. in Computer Science at TU Berlin.
+                        My main interests are in cybersecurity (mostly hardware and embedded systems security), microarchitecture design, and low-level programming.
+                        Outside of university, I enjoy weightlifting (not the Olympic kind) as well as some of my other constantly rotating interests (e.g., shaving soaps).
+                    </p>
+
+                    <hr>
+
+                    <h2 id="life">My Life so Far</h2>
+                    <p>
+                        I completed my Abitur in 2021, after which I started my Bachelor's degree in Computer Science at TU Berlin.
+                        During my Bachelor's, I spent one year working part-time each as a systems administrator for Cronon GmbH and a software developer for Codewerk GmbH.
+                        Through these jobs, I gained notable insights into how professional software is developed and how large software systems are operated.
+                        I finished my Bachelor's in 2025, writing my thesis on attacking the RPMC security feature of modern SPI flash chips, through voltage-glitching and other hardware attacks.
+                    </p>
+                    <p>
+                        Towards the start of my Master's, I took up a student position at the Security in Telecommunications (SecT) chair at TU Berlin, still focused on firmware and TPM security research.
+                        Currently I'm spending an exchange semester at KAIST in Daejeon, South Korea :).
+                    </p>
+
+                    <hr>
+
+                    <h2 id="fun">Fun Stuff I Did</h2>
+                    <h3>&raquo; Hello Again <span class="new">NEW!</span></h3>
+                    <p>
+                        While trying to find real-world targets for the RPMC SPI flash chips I researched during my Bachelor's thesis, we discovered that they were used to protect the fTPM state on multiple modern laptops.
+                        A couple of months of hardware research and PoC prototyping later, we demonstrated the existence of multiple hardware vulnerabilities,
+                        leading to my first <a href="https://doi.org/10.1145/3830454.3846631">peer-reviewed publication</a>.
+                    </p>
+                </td>
+            </tr>
+        </table>
+
+        <footer id="contact">
+            <div class="box">
+                <div class="box-title">Contact</div>
+                <div class="contact-links">
+                    <span>Matti Finder</span>
+                    <a href="mailto:matti.finder+website@gmail.com">E-Mail</a>
+                    <a href="https://github.com/mattifinder/">GitHub</a>
+                    <a href="https://orcid.org/0009-0003-8990-4865">ORCID</a>
+                </div>
             </div>
-            <a href="mailto:matti.finder+website@gmail.com">E-Mail</a>
-            <a href="https://github.com/mattifinder/">GitHub</a>
-            <a href="https://orcid.org/0009-0003-8990-4865">ORCID</a>
-            <div class="last-modified">
+            <p class="fineprint">
                 Last modified: <time datetime="2026-11">November 2026</time>
-            </div>
+            </p>
         </footer>
     </body>
 </html>
