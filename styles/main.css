@@ -24,6 +24,9 @@ a {
     text-align: center;
     img {
         width: 80%;
+        border: .2rem solid magenta;
+        /* keep the border inside the image's width so it doesn't grow the layout */
+        box-sizing: border-box;
     }
     @media (min-width: 500px) {
         float: right;
@@ -46,6 +49,25 @@ footer {
     }
 }
 
+.last-modified {
+    /* in the row layout, push the date to the right edge */
+    @media (min-width: 500px) {
+        margin-left: auto;
+    }
+}
+
 .bold {
     font-weight: bold;
+}
+
+h1 {
+    border-bottom: .3rem double aquamarine;
+    padding-bottom: .3rem;
+}
+
+h2 {
+    /* flow-root keeps the line from running underneath the floated photo */
+    display: flow-root;
+    border-bottom: .1rem solid aquamarine;
+    padding-bottom: .2rem;
 }
